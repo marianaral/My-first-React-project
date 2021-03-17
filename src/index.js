@@ -10,13 +10,13 @@ const firstBook = {
   img: 'https://images.vexels.com/media/users/3/205462/isolated/lists/87b34912ed9f8d2900754c38220faac6-pila-de-ilustracion-de-libros.png',
   title: 'I Love You to the Moon and Back',
   author: 'Amelia Hepworth'
-}
+};
 
 const secondBook = {
   img: 'https://images.vexels.com/media/users/3/205464/isolated/lists/33d6bbfd7171189bd02d36b4e2befb6b-pila-de-libros-te-ilustracion.png',
   title: 'The Cafeteria',
   author: 'Someone Famous'
-}
+};
 
 /*To create a component. We capitalize the first letter to 
 * make React know it is an special component
@@ -74,7 +74,14 @@ function BookList() {
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      />
+      >
+        <p>Lorem ipsum dolor sit amet
+        consectetur adipisicing elit.
+        A atque placeat, facere aliquid
+        ex animi amet quibusdam rerum cumque! Voluptas?
+        </p>
+
+      </Book>
       <Book
         img={secondBook.img}
         title={secondBook.title}
@@ -121,14 +128,16 @@ const Author = () => (
 }*/
 
 //Props Destructuring
-const Book = ({ img, title, author }) => {
-  //const { img, title, author } = props;
+const Book = (/*{ img, title, author, children }*/ props) => {
+  const { img, title, author, children } = props;
+  console.log(props);
   return (
     <article className='book'>
       <img
         src={img} alt="book" />
       <h1>{title}</h1>
       <h4>{author}</h4>
+      {children}
     </article>
   );
 }
