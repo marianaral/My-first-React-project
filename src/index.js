@@ -17,62 +17,28 @@ const books = [
     title: 'The Cafeteria',
     author: 'Someone Famous'
   },
+  {
+    img: 'https://images.vexels.com/media/users/3/205191/isolated/lists/9515fbe7648c5450ffc4e0ce5e6a5427-ilustracion-de-taza-de-tetera-de-libros.png',
+    title: 'Another brick on the wall',
+    author: 'Pink Floyd'
+  },
 ]
-
-const names = ["john", "peter", "susan"];
-const newNames = names.map((name) => {
-  return <h1>{name}</h1>
-});
-console.log(newNames)
 
 function BookList() {
   return (
     <section className='booklist'>
-      {newNames}
+      {books.map((book) => {
+        return (
+          <Book book={book}></Book>
+        );
+      })}
     </section>
   );
 }
-/*
-const Book = () => {
-  return <article className='book'>
-    <BookImage></BookImage>
-    <Title />
-    <Author />
-  </article>
-}
-
-const BookImage = () => <img src="https://iesochoadeolza.educacion.navarra.es/web/
-wp-content/uploads/2016/01/libros.png" alt="Book" />;
-
-const Title = () => <h1>I Love You to the Moon and Back</h1>;
-//The first {} in the style attribute is for Js, but the second is for object in JS
-const Author = () => (
-  <h4 style={{
-    color: '#617d98', fontSize: '0.75rem',
-    marginTop: '0.25rem'
-  }}>
-    Amelia Hepworth
-  </h4>
-);
-*/
-
-//ANOTHER WAY OF DOING ABOVE
-
-/*const Book = (props) => {
-  return (
-    <article className='book'>
-      <img
-        src={props.img} alt="book" />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
-    </article>
-  );
-}*/
 
 //Props Destructuring
 const Book = (/*{ img, title, author, children }*/ props) => {
-  const { img, title, author } = props;
-  console.log(props);
+  const { img, title, author } = props.book;
   return (
     <article className='book'>
       <img
